@@ -7,4 +7,5 @@ future: true
 jailed: false
 gfm_quirks: paragraph_end
 theme: jekyll-theme-cayman
-
+title: zach fredin
+description: portfolio
