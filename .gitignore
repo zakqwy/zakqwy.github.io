@@ -1,0 +1,6 @@
+# ruby stuff for local site generation
+Gemfile
+Gemfile.lock
+
+# local site files
+_site
