@@ -1,6 +1,12 @@
 ---
 layout: default
+title: zach fredin
 ---
-## neurobuggy
+## [NeuroBytes](neurobytes.md)
+![NeuroBytes](/assets/img/neurobytes.jpg "NeuroBytes")
 
-![NeuroBuggy](/assets/img/neurobuggy.jpg "NeuroBuggy!")
+## [Electronics](electronics.md)
+![Electronics](/assets/img/electronics.jpg "Electronics")
+
+## [About](about.md)
+![About](/assets/img/zach.jpg "About")
