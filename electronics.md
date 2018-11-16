@@ -45,11 +45,14 @@ A tiny castellated board designed to help designers build high-DPI persistence-o
 
 [Source files](https://github.com/zakqwy/rotovis_mod1), [more documentation](https://hackaday.io/project/27829-rotovis-mod1)
 
-## Phonetroller (2018-present)
+## Phonetroller II (2018-present)
 
+![phonetrollerII_1](/assets/img/phonetroller1II_1.jpg)
 
+I chopped an XBOX360 wireless controller in half, bolted on a bunch of carved up FR4, wired in a Teensy 3.2 with a USB-C plug, and fitted it to my phone. Boom, Nintendo Switch without the DRM.
+
+![phonetrollerII_2](/assets/img/phonetrollerII_2.jpg)
+
+This project is still very much in progress. The next step is to design a kit that encourages a user to chop _their_ old game controller (XBOX or otherwise) in half, and provides replacement PCBs that mate up with the factory "ergonomics package" from the original device. During assembly, the user would customize the exact dimensions of the structure to snugly fit their device. Less E-waste, more upcycling, funner mobile gaming.
 
 [Version One (bodgy)](https://hackaday.io/project/8160-weekend-novelty-projects/log/69162-phonetroller), [Version Two (slightly less bodgy)](https://hackaday.io/project/112177-phonetroller)
-
-## novelty soldering
-2015-present

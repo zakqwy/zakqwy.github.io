@@ -8,5 +8,8 @@ title: zach fredin
 ## [Electronics](electronics.md)
 ![Electronics](/assets/img/electronics.jpg "Electronics")
 
+## [Novelty Soldering](noveltysoldering.md)
+![Novelty Soldering](/assets/img/noveltysoldering.jpg "Novelty Soldering")
+
 ## [About](about.md)
 ![About](/assets/img/zach.jpg "About")
