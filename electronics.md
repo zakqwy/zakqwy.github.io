@@ -3,7 +3,7 @@ layout: default
 ---
 
 # Electronics
-A selection of personal electronics projects from the last few years.
+A selection of electronics projects from the last few years.
 
 ## cyborg ring (2017-present)
 
@@ -35,6 +35,15 @@ A USB dongle with all sixteen dominant wavelengths from the Rohm PicoLED series.
 
 [Source files](https://github.com/zakqwy/blinktronicator), [more documentation](https://hackaday.io/project/8331-blinktronicator)
 
+## $50 ESD pre-tester (2018)
+You thought electrostatic discharge testing at a lab was expensive? Try buying one of the sweet looking ray guns the labs use to run the tests, so you can pre-check boards yourself!
+
+[img: sweet ray gun for ESD testing NeuroBytes]
+
+After a few of our [NeuroBytes boards](/neurobytes.md) failed the first round of ESD testing (shown above), I built an ESD pre-tester out of an eBay-sourced modular 8kV power supply, a few 100 pF capacitors, a bit of copper clad FR4, and a length of insulating Delrin rod. Most of the work involved building the circuit to trick the power supply into thinking it was in a mass spectrometer. The resultant device saved us thousands of dollars and months of lab testing, and makes cool sparks as a bonus.
+
+[img: tester]
+
 ## Rotovis-Mod1 (2017-2018)
 
 ![rotovis1](/assets/img/rotovis1.png)
@@ -47,7 +56,7 @@ A tiny castellated board designed to help designers build high-DPI persistence-o
 
 ## Phonetroller II (2018-present)
 
-![phonetrollerII_1](/assets/img/phonetroller1II_1.jpg)
+![phonetrollerII_1](/assets/img/phonetrollerII_1.jpg)
 
 I chopped an XBOX360 wireless controller in half, bolted on a bunch of carved up FR4, wired in a Teensy 3.2 with a USB-C plug, and fitted it to my phone. Boom, Nintendo Switch without the DRM.
 
@@ -56,3 +65,11 @@ I chopped an XBOX360 wireless controller in half, bolted on a bunch of carved up
 This project is still very much in progress. The next step is to design a kit that encourages a user to chop _their_ old game controller (XBOX or otherwise) in half, and provides replacement PCBs that mate up with the factory "ergonomics package" from the original device. During assembly, the user would customize the exact dimensions of the structure to snugly fit their device. Less E-waste, more upcycling, funner mobile gaming.
 
 [Version One (bodgy)](https://hackaday.io/project/8160-weekend-novelty-projects/log/69162-phonetroller), [Version Two (slightly less bodgy)](https://hackaday.io/project/112177-phonetroller)
+
+## Illumi-Loupe (2016)
+
+[img: illumi-loupe 1]
+
+A simple concept and probably the most useful (or at least the most used) tool I have ever built. Copper tape, Kapton, and a bit of solder mashed together with a 10x B&L Hastings triplet, a coin cell, and a few high brightness right angle LEDs. Great for examining solder joints on the go!
+
+[img: illumi-loupe 2]
