@@ -36,13 +36,17 @@ A USB dongle with all sixteen dominant wavelengths from the Rohm PicoLED series.
 [Source files](https://github.com/zakqwy/blinktronicator), [more documentation](https://hackaday.io/project/8331-blinktronicator)
 
 ## $50 ESD pre-tester (2018)
-You thought electrostatic discharge testing at a lab was expensive? Try buying one of the sweet looking ray guns the labs use to run the tests, so you can pre-check boards yourself!
+You thought electrostatic discharge testing at a lab was expensive? Try buying one of the sweet looking ray guns the labs use to run the tests so you can pre-check boards yourself; they cost more than my car!
 
-[img: sweet ray gun for ESD testing NeuroBytes]
+![ESD test](/assets/img/esd1.jpg)
 
-After a few of our [NeuroBytes boards](/neurobytes.md) failed the first round of ESD testing (shown above), I built an ESD pre-tester out of an eBay-sourced modular 8kV power supply, a few 100 pF capacitors, a bit of copper clad FR4, and a length of insulating Delrin rod. Most of the work involved building the circuit to trick the power supply into thinking it was in a mass spectrometer. The resultant device saved us thousands of dollars and months of lab testing, and makes cool sparks as a bonus.
+After a few of our [NeuroBytes boards](/neurobytes.md) failed the first round of ESD testing (shown above), I built an ESD pre-tester out of an eBay-sourced modular 8kV power supply, a few 100 pF capacitors, a bit of copper clad FR4, and a length of insulating Delrin rod. Most of the work involved building the circuit to trick the power supply into thinking it was in a mass spectrometer:
 
-[img: tester]
+![ESD pre-tester 1](/assets/img/esd2.jpg)
+
+The resultant device saved us thousands of dollars and months of lab testing, and makes cool sparks as a bonus.
+
+![ESD pre-tester 2](/assets/img/esd3.jpg)
 
 ## Rotovis-Mod1 (2017-2018)
 
@@ -68,8 +72,10 @@ This project is still very much in progress. The next step is to design a kit th
 
 ## Illumi-Loupe (2016)
 
-[img: illumi-loupe 1]
+![loupe1](/assets/img/loupe1.jpg)
 
 A simple concept and probably the most useful (or at least the most used) tool I have ever built. Copper tape, Kapton, and a bit of solder mashed together with a 10x B&L Hastings triplet, a coin cell, and a few high brightness right angle LEDs. Great for examining solder joints on the go!
 
-[img: illumi-loupe 2]
+![loupe2](/assets/img/loupe2.jpg)
+
+[more documentation](https://hackaday.io/project/8160-weekend-novelty-projects/log/45208-illumi-loupe)

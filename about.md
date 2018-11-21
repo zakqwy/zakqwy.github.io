@@ -9,6 +9,8 @@ zachary dot fredin at gmail dot com
 
 [Twitter](https://twitter.com/zakqwy), [GitHub](https://github.com/zakqwy), [Hackaday.io](https://hackaday.io/zakqwy).
 
-Resume, updated November 2018 [add link]
+[Resume](/ZF_resume.md), updated November 2018.
 
-Currently living in Minneapolis, MN.
+Currently living in [Minneapolis, MN](https://en.wikipedia.org/wiki/Minneapolis).
+
+Lead engineer, co-founder, and CEO at [NeuroTinker, LLC](https://neurotinker.com).

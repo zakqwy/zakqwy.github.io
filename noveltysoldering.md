@@ -33,7 +33,7 @@ Uses fourteen 0402 LEDs, an ATtiny44A, and a few coin cells to emulate a pair of
 Suspiciously similar in function and coloration to the popular 1978 electronic game Simon. Built as a holiday present, and as an excuse to play around with SMT piezo buzzers and 12mm buttons. Video with sound [here](https://youtu.be/lXgxr6eGAZU), more documentation [here](https://hackaday.io/project/8160-weekend-novelty-projects/log/50668-simon-uh-suggests).
 
 ## Badge Bodgery
-Electronic conference badges are now A THING. I like to hack them into weird delicate blinky sculptures.
+Electronic conference badges are now **a thing**. I like to hack them into weird delicate blinky sculptures.
 
 ### supercon monster matrix (2016)
 ![hackaday 2016 badge](/assets/img/hackaday2016badge.jpg)
@@ -66,3 +66,13 @@ That is, until something broke. Some things are too delicate to survive. More do
 Based on the Octavo OSD335x SiP running BeagleBone firmware. The chip enumerated over USB but I never got it to boot, but to be fair it was a busy weekend and SD cards can be fussy.
 
 ![octavo](/assets/img/octavo.jpg)
+
+## Free Air Sculptures
+Sometimes you just don't have time for a fussy substrate. This work differs from most free-air work in that it concentrates on being tiny at the expense of rigidity and durability. 
+
+### blinktronicator (2016)
+A free-air version of the [blinktronicator](/electronics.md). Still works, still my favorite creation to date.
+
+![blinktronicator](/assets/img/blinktronicator3.jpg)
+
+[more documentation](https://hackaday.io/project/8331-blinktronicator/log/41277-free-air-blinktronicator)
