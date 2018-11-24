@@ -16,6 +16,16 @@ The first prototype of the Phonetroller project; see [electronics](/electronics.
 
 ![phonetrollerI_2](/assets/img/phonetrollerI_2.jpg)
 
+### NeuroScope (2016)
+
+![neuroscope](/assets/img/neuroscope.jpg)
+
+I spent a weekend building a Teensy 3.2-based prototype membrane potential visualizer for the [NeuroBytes](/neurobytes.md) project. It ended up being one of the most important prototypes I've ever built -- we got our best response from our customers, and its technical requirements drove our development efforts for the next few years. Survived in my bag before being retired when we switched from ATtiny88s to STM32L011s. I even built a second, slightly more compact version:
+
+![neuroscope2](/assets/img/neuroscope2.jpg)
+
+[more documentation](https://hackaday.io/project/3339-neurobytes/log/41994-neuroscope-a-real-time-membrane-potential-waveform-viewer)
+
 ### auto dice (2016)
 
 ![auto dice](/assets/img/autodice.gif "auto dice")
@@ -68,7 +78,7 @@ Based on the Octavo OSD335x SiP running BeagleBone firmware. The chip enumerated
 ![octavo](/assets/img/octavo.jpg)
 
 ## Free Air Sculptures
-Sometimes you just don't have time for a fussy substrate. This work differs from most free-air work in that it concentrates on being tiny at the expense of rigidity and durability. 
+Sometimes you just don't have time for a fussy substrate. This work differs from most free-air work in that it concentrates on being tiny at the expense of rigidity and durability.
 
 ### blinktronicator (2016)
 A free-air version of the [blinktronicator](/electronics.md). Still works, still my favorite creation to date.
@@ -76,3 +86,15 @@ A free-air version of the [blinktronicator](/electronics.md). Still works, still
 ![blinktronicator](/assets/img/blinktronicator3.jpg)
 
 [more documentation](https://hackaday.io/project/8331-blinktronicator/log/41277-free-air-blinktronicator)
+
+### DIP-ified QFN (2017)
+I wanted to experiment with TI's constant-current LED drivers and was too impatient to wait for a PCB. Presto, quick 0.1" breadboard compatibility!
+
+![dipify](/assets/img/dipify.jpg)
+
+### Rotovis-Mod1 (2018)
+A free-air verison of [Rotovis-Mod1](/electronics.md), perched atop a Teensy 3.5 like a tiny light-up peacock. Since they're effectively 2-terminal LGAs, hand-soldering 0201 LEDs is actually a bit easier this way.
+
+![Rotovis-Mod1](/assets/img/rotovis3.jpg)
+
+[more documentation](https://hackaday.io/project/27829-rotovis-mod1/log/147666-the-obligatory-free-air-version)
