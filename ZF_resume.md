@@ -1,7 +1,5 @@
 # Zach Fredin
 zachary dot fredin at gmail dot com
-## Summary
-
 ## Work Experience
 **NeuroTinker, LLC, 04/2015 - present, Minneapolis, MN**
 
@@ -15,7 +13,7 @@ _Co-Founder, Lead Engineer, and CEO, 04/2015 - present_
 
 **Jasper Engineering and Equipment Co, 09/2010 - 12/2015, Medina, MN**
 
-_Applications Engineer, 05/2014 - 12/2015_
+_Application Engineer, 05/2014 - 12/2015_
 * Hosted technical lunches and product training sessions for customers and sales reps
 * Acted as in-office technical lead for a major industrial rep covering 8 states
 * Administered and developed for Salesforce customer relationship management (CRM) platform
@@ -26,7 +24,7 @@ _Outside Sales Engineer, 09/2010 - 05/2014_
 * Hosted dozens of technical lunches focused on explaining a specific instrumentation technology
 * Drove 35,000+ miles per year visiting customers and evaluating instrumentation and control valve applications
 
-**PCC Wyman Gordon, 07/2009 - 07/2010, Grafton, MA**
+**Wyman Gordon, 07/2009 - 07/2010, Grafton, MA (part of Precision Castparts Management Development Program)**
 
 _Front End Supervisor, 01/2010 - 07/2010_
 * Supervized four departments ahead of closed-die forging operations: Billet Grind, Stock Cutting, Flash Cutting, and 2000-ton Sack Press
@@ -38,7 +36,7 @@ _Maintenance Planning Specialist, 07/2009 - 01/2010_
 * Developed preventative and predictive maintenance programs for 18,000 ton, 35,000 ton, and 50,000 ton forging press reliability improvements
 * Managed a $650k outage covering 40 projects, ending under budget with a 95% completion rate
 
-**PCC Advanced Forming Technology, 07/2008 - 07/2009, Longmont, CO**
+**Advanced Forming Technology, 07/2008 - 07/2009, Longmont, CO (part of Precision Castparts Management Development Program)**
 
 _New Product Development Engineer, 01/2009 - 07/2009_
 * Managed two part programs worth $300k/year in sales
@@ -64,16 +62,16 @@ _Product Engineer, 05/2007 - 05/2008_
 
 ## Education
 **Case Western Reserve University, Cleveland, OH, 08/2003 - 05/2008**
-* Master, Engineering and Management, 05/2008
-* Bachelor of Science, Materials Science and Engineering, 05/2007
+* Master of Engineering and Management (MEM), Case School of Engineering and Weatherhead School of Management, 05/2008
+* Bachelor of Science, Materials Science and Engineering, Case School of Engineering, 05/2007
 
 ## Competencies
 **Electrical Engineering**
 * Highly proficient at manual assembly and SMT soldering
-* 2- and 4-layer non-RF circuit and PCB design
+* 2- and 4-layer circuit and PCB design
 * Fast functional prototyping and iteration
-* Scaling designs (100-5,000 unit production)
-* FCC/CE testing (unintentional radiator and ESD)
+* Scaling electrical designs to 100-5,000 unit production
+* FCC/CE testing and troubleshooting
 
 **Mechanical Design**
 * Mechanical prototyping (3D printing, laser cutting, hand fabrication and assembly)
