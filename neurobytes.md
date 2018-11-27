@@ -61,7 +61,7 @@ _above, our first radiated emissions tests resulted in numerous peaks (black lin
 This failure kicked off a four month redesign sprint. I bought an old but excellent spectrum analyzer which we used to trace down EMC sources through multiple PCBA revisions. We also tackled other testing challenges, including electrostatic discharge (ESD) and electromagnetic immunity (EMI), both of which are required for CE.
 
 ## Documentation
-A core tenant of NeuroBytes is that they encourage hands-on experimentation rather than screen-based instruction for learning. As such, it is important that our kits include comprehensive documentation. I am particularly proud of this work, as I feel the graphic design makes our product stand out from many. Here are a few photographs of the production samples for our NeuroBuggy manual:
+A core tenet of NeuroBytes is that they encourage hands-on experimentation rather than screen-based instruction for learning. As such, it is important that our kits include comprehensive documentation. I am particularly proud of this work, as I feel the graphic design makes our product stand out from many. Here are a few photographs of the production samples for our NeuroBuggy manual:
 
 ![doc1](/assets/img/neurobytes7.jpg)
 
