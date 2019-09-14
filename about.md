@@ -11,6 +11,8 @@ zachary dot fredin at gmail dot com
 
 [Resume](/ZF_resume.md), updated November 2018.
 
-Currently living in [Minneapolis, MN](https://en.wikipedia.org/wiki/Minneapolis).
+Currently living in [Cambridge, MA](https://en.wikipedia.org/wiki/Cambridge,_Massachusetts).
+
+Research assistant at the [MIT Center for Bits and Atoms](http://cba.mit.edu).
 
 Lead engineer, co-founder, and CEO at [NeuroTinker, LLC](https://neurotinker.com).
