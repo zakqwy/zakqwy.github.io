@@ -13,6 +13,6 @@ zachary dot fredin at gmail dot com
 
 Currently living in [Cambridge, MA](https://en.wikipedia.org/wiki/Cambridge,_Massachusetts).
 
-Research assistant at the [MIT Center for Bits and Atoms](http://cba.mit.edu).
+Research assistant at [MIT's Center for Bits and Atoms](http://cba.mit.edu).
 
 Lead engineer, co-founder, and CEO at [NeuroTinker, LLC](https://neurotinker.com).
