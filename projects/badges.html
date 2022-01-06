@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Badge Bodgery</title>
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    body { 
+        padding: 1rem; 
+        max-width: 1000px;
+    }  
+    body img {
+        max-width: 1000px;
+    }
+
+</style>
+
+<body>
+    <h1>Badge Bodgery</h1>
+    Electronic conference badges are a thing. I like to hack them into weird delicate blinky sculptures.
+    <h2>supercon monster matrix (2016)</h2>
+    <img src="img/hackaday2016badge.jpg">
+    <br><br>
+    The 2016 Hackaday Supercon badge had an 8x16 red LED matrix. I felt it was too small, so I used a few chunks of FR4 and a bunch of magnet wire to embiggen it. Won Best Dead Bug in the badge hacking contest. More documentation <a href="https://hackaday.io/project/8160-weekend-novelty-projects/log/48843-badgery-bodgery">here</a>, article <a href="https://hackaday.com/2016/11/21/showing-off-the-badge-hacks-from-supercon/">here</a>.
+    <h2>tindie binary counter eyes (2017)</h2>
+    <img src="img/tindiebadge1.gif">
+    <br><br>
+    The Tindie Badge is a simple learn-to-solder project, where the user solders a pair of insertion mount T1-3/4 color-changing LEDs to the front and a battery/switch to the back. I swapped the LEDs for a pair of 5-element midair loops:
+    <br><br>
+    <img src="img/tindiebadge3.jpg">
+    <br><br>
+    ... and added a QFN ATTiny84A to the back, along with a few support components:
+    <br><br>
+    <img src="img/tindiebadge2.jpg">
+    <br><br>
+    <a href="https://hackaday.io/project/8160-weekend-novelty-projects/log/71347-tindie-badge-bodge">more documentation</a>
+    <h2>Jolly Wrencher + Teensy (2018)</h2>
+    Like the Tindie badge, the Jolly Wrencher originally was a learn-to-solder project with a few blinky LED eyes. I added all the parts of a Teensy 3.2 (ARM Cortex M4 microcontroller, bootloader, bypassing, oscillator, etc), along with a MEMS microphone, analog amplifier, power supply, and ten LEDs. The badge used the ARM CMSIS DSP FFT capabilities to display a real-time audio spectrum from the microphone (LEDs in test mode below).
+    <br><br>
+    <img src="img/jollywrencher1.jpg">
+    <br><br>
+    That is, until something broke. Some things are too delicate to survive. More documentation <a href="https://hackaday.io/project/8160-weekend-novelty-projects/log/154333-jolly-wrencher-diy-teensy-bodgery">here</a>.<br><br>
+    <h2>Dead-Bug Linux computer (2018)</h2>
+    Based on the Octavo OSD335x SiP running BeagleBone firmware. The chip enumerated over USB but I never got it to boot, but to be fair it was a busy weekend and SD cards can be fussy.
+    <br><br>
+    <img src="img/octavo.jpg">
+    <br><br>
+    <i>&copy; copyright zach fredin, 2016-2018</i>
+</body>
