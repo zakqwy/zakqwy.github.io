@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name fatiguetester)(type KiCad)(uri ${KIPRJMOD}/fatiguetester)(options "")(descr ""))
+)

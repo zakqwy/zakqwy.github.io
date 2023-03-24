@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>building machines with zach</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <meta name="viewport" content="width=1035px, initial-scale=1.0">
+</head>
+<body>
+<div id="mySidenav" class="sidenav">
+    <p><span class = "weeknum"><a href=index.html>Home</a></span></p>
+    <p><span class = "weeknum"><a href=modularflexures.html>Modular Superelastic Flexures</a></p>
+    <p><span class = "weeknum"><a href=flexuralactuator.html>Flexural Actuator Test</a></p>
+    <p><span class = "weeknum"><a href=cpm.html>Compliant Parallel Manipulator</a></p>
+    <p><span class = "weeknum"><a href=bolttrial.html>Sharpened Bolt Trials</a></p>
+    <p><span class = "weeknum"><a href=axis-o-sarrus.html>Axis-O-Sarrus</a></p>
+    <p><span class = "weeknum"><a href=inversekinematics.html>Inverse Kinematics</a></p>
+    <p><span class = "weeknum"><a href=fatiguedatum.html>Fatigue Datum</a></p>
+    <p><span class = "weeknum">|Checkerboard|</span></p>
+    <p><span class = "weeknum"><a href=pinsetter.html>Pinsetter</a></p>
+    <p><span class = "weeknum"><a href=arucomarkers.html>ArUco Markers</a></p>
+    <p><span class = "weeknum"><a href=fatigueexploration.html>Fatigue Exploration</a></p>
+    <p><span class = "weeknum"><a href=sprintplanning.html>Sprint Planning</a></p>
+    <p><span class = "weeknum"><a href=finalproject.html>Final Project</a></p>
+</div>
+<div id="myMainnav" class="mainnav">
+    <h1>Checkerboard</h1>
+    The update increment is smaller this week; so it goes. Before using the computer vision system to fully Cartesian-ify the stage, I need to correct for lens and camera distortion. OpenCV provides some <a href="https://docs.opencv.org/master/dc/dbb/tutorial_py_calibration.html">terrific documentation</a> that walks the user through the process; a few colleagues also recently got a similar system set up for another research project, so I'll definitely bug them when my code doesn't work. Calibration requires a checkerboard pattern of known size which is photographed using the camera setup at various angles. These images are then processed and fed into an algorithm that corrects for intrinsic and extrinsic errors. <br><br>
+    Metrology is a chain of trust; you calibrate your system based on another system, which then traces its calibration back to another system and eventually an agreed-upon standard or, in modern times, a fundamental physical constant. In this vein, printing out a checkerboard links the accuracy of my machine to the optical encoder strip that provides position information to a print head (or however drum-based laser printers do it). Instead, I opted to create the calibration pattern using our Oxford laser micromachining system. It uses nice Aerotech linear stages and is built of massive granite slabs, and can reliably hit micron repeatability if targets are well-fixtured.<br><br>
+    The Oxford eats Gcode, so I wrote a Python script (<a href="jupyter/opencv_patterns.ipynb">here</a>, in Jupyter Notebook format) to generate checkerboard patterns. After running a few tests, I used 320 grit sandpaper on a flat glass sheet to lap a blank PCB (relatively) flat, then laser engraved a 9x12 checkerboard with 1.5 mm boxes. Contrast is great with a well-positioned light source; here is a cropped image from the PiCam:<br><br>
+    <img src="img/checkerboard.jpg"><br><br>
+    The Oxford has a nanosecond-pulsed 532 nm source rated for 5 watts of average power and a beam forming system that delivers a ~15 micron Gaussian spot. I ran the laser at 20 kHz with the attenuator set to 2%, and rasterized the filled boxes at a 10 micron pitch. Feed rate was 3 mm/s; with acceleration at each end, this resulted in a total cut time of just over an hour. A 200 pixel wide sliver of the image above, blown up without interpolation, shows good resolution at the limit, albeit with noticable chromatic abberation:<br><br>
+    <img src="img/checkerboard_close.jpg"><br><br>
+    ImageJ tells me that I'm resolving ~80 pixels per millimeter, or roughly ~2000 DPI. So still in the ballpark of the resolution of a commercial printer, but I'm more worried about accuracy over the entire ~15 mm test grid. Worth it? Or at least, an excuse to write a bit of Python and fire up the Oxford? In any case, I may have off-by-one-errored. The test pattern imaged with an optical microscope shows what looks like filled square corner overlap:<br><br>
+    <img src="img/checkerboard_microscope.jpg"><br><br>
+    Apologies for the lack of scale bar; in any case, the overlap seems to be on the order of a single trench width (see the corduroy pattern, bottom left), so it's probably a less-than-10-micron problem. Onward, with hopefully more progress next week.<br><br> 
+
+</div>

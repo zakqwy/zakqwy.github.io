@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>building machines with zach</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <meta name="viewport" content="width=1035px, initial-scale=1.0">
+</head>
+<body>
+<div id="mySidenav" class="sidenav">
+    <p><span class = "weeknum"><a href=index.html>Home</a></span></p>
+    <p><span class = "weeknum">|Modular Superelastic Flexures|</span></p>
+    <p><span class = "weeknum"><a href=flexuralactuator.html>Flexural Actuator Test</a></p>
+    <p><span class = "weeknum"><a href=cpm.html>Compliant Parallel Manipulator</a></p>
+    <p><span class = "weeknum"><a href=bolttrial.html>Sharpened Bolt Trials</a></p>
+    <p><span class = "weeknum"><a href=axis-o-sarrus.html>Axis-O-Sarrus</a></p>
+    <p><span class = "weeknum"><a href=inversekinematics.html>Inverse Kinematics</a></p>
+    <p><span class = "weeknum"><a href=fatiguedatum.html>Fatigue Datum</a></p>
+    <p><span class = "weeknum"><a href=checkerboard.html>Checkerboard</a></p>
+    <p><span class = "weeknum"><a href=pinsetter.html>Pinsetter</a></p>
+    <p><span class = "weeknum"><a href=arucomarkers.html>ArUco Markers</a></p>
+    <p><span class = "weeknum"><a href=fatigueexploration.html>Fatigue Exploration</a></p>
+    <p><span class = "weeknum"><a href=sprintplanning.html>Sprint Planning</a></p>
+    <p><span class = "weeknum"><a href=finalproject.html>Final Project</a></p>
+</div>
+<div id="myMainnav" class="mainnav">
+    <h1>Modular Superelastic Flexures</h1>
+    <video width="800" autoplay loop muted>
+        <source src="vid/modularflexure.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+    </video></p>
+    <h2>Intro</h2>
+    Flexures are mechanisms designed to predictably deform under load. They enjoy numerous advantages over rotating and sliding joints, such as lack of backlash, high reliability without maintenance, and atom-class repeatability. Conversely, flexures generally are not as stiff versus off-axis loads compared to preloaded bearings or precision ground ways. Since they depend on miniscule reversible elastic strain, the overall size of flexural mechanisms usually dwarfs their working range; while a 250 mm long linear axis may travel 200 mm, a similarly sized flexure will likely only be designed for a few millimeters of displacement. Flexures are also difficult to fabricate, usually requiring a wire-EDM to achieve the necessary accuracy of the thin elements. There are many great resources for learning more about flexure design; in particular, Marcel Thomas' <a href=http://web.mit.edu/mact/www/Blog/Flexures/FlexureIndex.html>website</a> and <a href=http://makerworks.mit.edu/2016/03/22/flexure-lecture-materials/>Flexure Lecture</a> are a good starting point, while <a href=http://academy.cba.mit.edu/classes/computer_cutting/56836505.pdf>Shorya Awtar's PhD thesis</a> is a great deep dive into practical flexure design.<p>
+    Traditional flexure design rules dictate severe strain restrictions. This prevents structures from exceeding the aforementioned elastic strain limit (which is often cut down by a half or two thirds to account for fatigue), and avoids dramatic stiffness reduction from beam buckling. This is illustrated in an early test of a traditional double-four-bar linear translation mechanism fabricated from modular superelastic flexures; while the off-axis stiffness of the mechanism is quite high near its zero point, the design effectively turns into a 2-degree-of-freedom structure at extreme displacements:<p>
+    <video width="800" autoplay loop muted>
+        <source src="vid/double4bar.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+    </video></p>
+    <h2>Superelastic Materials</h2>
+    When most metals are stressed, they first exhibit a reversible linear stress-strain ("<a href=https://en.wikipedia.org/wiki/Hooke%27s_law>Hookean</a>") relationship, where the slope is the material's Young's modulus. The yield point is defined as a 0.2% deviation from this line, and the rounded portion beyond is non-recoverable plastic deformation. If the material is un-stressed prior to breakage but beyond the yield point, it will recover the elastic strain but remain plastically deformed, as shown by the red line:<p>
+    <img src="img/stress-strain_normal.png"><p>
+    <i>By Nicoguaro - Own work, CC BY 4.0, https://commons.wikimedia.org/w/index.php?curid=89891144, annotations in red from ZF</i><p>
+    Superelastic (technically <i><a href=https://en.wikipedia.org/wiki/Pseudoelasticity>pseudoelastic</a></i>) materials, in contrast, can recover all of their deformation beyond the linear region up to a remarkable 8-10% strain, ten times the value of most metals. This is because superelasticity is caused by reversible martensitic transformation which notably includes a sizable hysteresis loop:
+    <img src="img/stress-strain_superelastic.png"><p>
+    <i>Hui Qian, Hongnan Li, Gangbing Song, and Wei Guo, CC BY 3.0, https://upload.wikimedia.org/wikipedia/commons/f/f8/ Superelastic_behavior_of_the_austenitic_to_martensitic_phase_transformation.png</i><p>
+    One of the most common superelastic materials is Nitinol, a near-50:50 nickel titanium alloy frequently used for its <a href=https://en.wikipedia.org/wiki/Shape-memory_alloy>shape-memory</a> characteristics. Nitinol is easy to find commercially as a fine wire, since resistive heating turns it into a simple low-strain actuator. Bulk material is harder to come by and is quite expensive; much of this exploration was driven by the recent discovery of a reasonable (but still spendy) <a href=https://www.kelloggsresearchlabs.com/product/nitinol-plates/>commercial source</a> of stock. <p>
+    Once this material was in hand, a bit was wire-EDMed into ASTM A370 subsize coupons for tensile- (but not yet hysteresis-) testing on the 4411 Instron. It just kept stretching, eventually hitting the load cell limit at 40% elongation rather than fracturing:<p>
+    <img src="img/nitinol_tension_test.png"><p>
+    ... and was generally amusing to play with:<p>
+    <video width="800" autoplay loop muted>
+        <source src="vid/nitinol.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+    </video></p>
+    <h2>Modular Flexures</h2>
+    Flexural mechanisms are often fabricated out of homonegenous slabs of material using a wire-EDM. However, good (read: reliable enough to let run overnight) design-for-wire-EDM practice avoids internal cuts, since loose bits can unpredictably fall through the workpiece and short out the machine or stall an axis. Internal cuts also require pre-drilling holes, meaning one must carefully align stock in the machine after waterjetting or drilling a preform. The enormous expense of Nitinol compounds these limitations; for reference, a 50 mm x 150 mm x 10 mm slab was $600. <p>
+    Modularizing flexures is an interesting proposition for the reasons discussed above but must be approached cautiously. As Marcel mentions in his Lecture, adhesives can exhibit viscoelasticity, while bolted joints can slip if they aren't torqued properly and take up a decent amount of space. Joinery methods are an attractive alternative. Here, I introduce taper-pin-secured modular flexures which use commercially available <a href=https://www.mcmaster.com/90681A001/>pins</a> and <a href=https://www.mcmaster.com/2990A41/>tools</a> to quickly and reversibly form stiff, compact joints:<p>
+    <img src="img/microstage_too_render.png"><p>
+    <img src="img/microstage_too_strain.png"><p>
+    <img src="img/flexure_stage_experiments_also_butterfly.png"><p>
+    The parts can be bulk-manufactured using the wire-EDM, including the precise taper to exactly match the 48:1 taper pins:<p>
+    <img src="img/dogbones_x8.jpg"><p>
+    <img src="img/bowties_x24.jpg"><p>
+    Corresponding structural bits can be wire-EDMed out of cheaper material, such as aluminum or steel; however, large parts take forever and tie up the machine. A better solution is to waterjet these parts out of aluminum and use a Nitinol flexure as a guide to taper-ream a matching hole:<p>
+    <img src="img/taperream.jpg"><p>
+    This works quite well since aluminum is significantly softer than Nitinol, so the taper evens out nicely. After this preparation, the assembly can be gently tapped together on a perforated build surface:<p>
+    <img src="img/flexure_stage_experiments_also_assembly.jpg"><p>
+    <h2>Composable Flexures</h2>
+    An interesting offshoot of the project extends modularity to discretization, where flexural and rigid struts can be used to freely compose 2D structures with tunable mechanical characteristics:<p>
+    <img src="img/composable_flexures_render.jpg"><p>
+    <img src="img/composable_flexures_img.jpg"><p>
+    <video width="800" autoplay loop muted>
+        <source src="vid/composable.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+    </video></p>
+    An unresolved issue with this concept relates to a core joint property: during assembly, pin insertion causes the assembly to expand by ~50 microns (or roughly 1%, given 5 mm lattice pitch) laterally due to intentional deformation of the nodes. While this can be partially solved by staged assembly, the inevitable lattice strain negatively affects complex mechanisms; in one test, a linear stage gained a severe amount of bistability. A few things were tried, such as a revised strut geometry and different node materials, but for now this direction is shelved in the interest of building functional flexural machines.
+    <h2>Fatigue</h2>
+    A common commecial application for superelastic Nitinol is in the medical device industry, where the material is used to make highly collapsable stents. Since these devices are designed for permanent implantation and failure could be fatal to the patient, the high cycle fatigue properties of Nitinol have been rigorously studied. Unfortunately, a good deal of this information lives with the medical device manufacturers. Generally, fatigue can be minimized by limiting strain to a few percent (again, this is ~10x the value of most metals for high cycle fatigue) and via careful surface treatment to reduce cracking. <p>
+    Several modular flexures were tested for fatigue failure using the 4411 Instron. These tests were not rigorous, as the apparatus controlled for displacement rather than precise angle; this value was instead estimated later using captured video frames and ImageJ from clips like this:<p>
+    <video width="800" autoplay loop muted>
+        <source src="vid/fatigue.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+    </video></p>
+    Concerningly, all samples from ~24 to ~45 degrees failed between 1000-3000 cycles. This is enough for prototyping but not sufficient for a machine:<p>
+    <img src="img/fatigue_test_1.png"><p>
+    The wire-EDM surface finish is macroscopically excellent but microscopically rough, on the order of Ra ~ 10 um. A flexure was hand-polished using a 400-grit dressed-to-match Arkansas stone:<p>
+    <img src="img/polished_flexure.jpg"><p>
+    Another was mechanically polished, then electropolished in 14 M phosphoric acid at 20 V and ~3 A for 2 minutes. In both cases fatigue life improved nominally but not significantly. More investigation (and proper 3-point bend tests) is needed, but the likely solution will be to limit angular displacement to 10-15 degrees. This will increase the size of mechanisms but certainly isn't a show-stopper.
+</div>

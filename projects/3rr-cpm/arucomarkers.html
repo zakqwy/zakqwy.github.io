@@ -1,0 +1,102 @@
+<html>
+<head>
+    <title>building machines with zach</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <meta name="viewport" content="width=1035px, initial-scale=1.0">
+</head>
+<body>
+<div id="mySidenav" class="sidenav">
+    <p><span class = "weeknum"><a href=index.html>Home</a></span></p>
+    <p><span class = "weeknum"><a href=modularflexures.html>Modular Superelastic Flexures</a></p>
+    <p><span class = "weeknum"><a href=flexuralactuator.html>Flexural Actuator Test</a></p>
+    <p><span class = "weeknum"><a href=cpm.html>Compliant Parallel Manipulator</a></p>
+    <p><span class = "weeknum"><a href=bolttrial.html>Sharpened Bolt Trials</a></p>
+    <p><span class = "weeknum"><a href=axis-o-sarrus.html>Axis-O-Sarrus</a></p>
+    <p><span class = "weeknum"><a href=inversekinematics.html>Inverse Kinematics</a></p>
+    <p><span class = "weeknum"><a href=fatiguedatum.html>Fatigue Datum</a></p>
+    <p><span class = "weeknum"><a href=checkerboard.html>Checkerboard</a></p>
+    <p><span class = "weeknum"><a href=pinsetter.html>Pinsetter</a></p>
+    <p><span class = "weeknum">|ArUco Markers|</span></p>
+    <p><span class = "weeknum"><a href=fatigueexploration.html>Fatigue Exploration</a></p>
+    <p><span class = "weeknum"><a href=sprintplanning.html>Sprint Planning</a></p>
+    <p><span class = "weeknum"><a href=finalproject.html>Final Project</a></p>
+</div>
+<div id="myMainnav" class="mainnav">
+    <h1>ArUco Markers</h1>
+    <a href="http://www.uco.es/investiga/grupos/ava/node/26">ArUco markers</a> are 2D binary-encoded fiducial patterns designed to be quickly located by computer vision systems. ArUco marker patterns are defined by a binary dictionary in OpenCV, and the <a href="https://docs.opencv.org/master/d9/d6a/group__aruco.html">various library functions</a> return pattern IDs and pose information from scanned images. The ArUco project, originally designed for augmented reality applications, comes from Rafael Munoz and Sergio Garrido:
+    <blockquote>S. Garrido-Jurado, R. Munoz-Salinas, F. J. Madrid-Cuevas, and M. J. Marin-Jimenez. 2014. "Automatic generation and detection of highly reliable fiducial markers under occlusion". Pattern Recogn. 47, 6 (June 2014), 2280-2292. DOI=10.1016/j.patcog.2014.01.005 </blockquote>
+    I'm going to use these markers to precisely determine the stage location during movement so I can eliminate the remaining distortion I observed after calculating <a href="inversekinematics.html">inverse kinematics</a>. ArUco markers are arguably overkill for this application; they shine when used in multi-marker and 3D applications with 6-DOF pose estimation. But Alfonso and others from the CBA used them recently for a research project and gave me tips on getting started, so this seemed like a good direction. <br><br>
+    First, I wrote a <a href="jupyter/cal.ipynb">Python script</a> in Jupyter Notebook to determine lens distortion based on a laser machined <a href="checkerboard.html">checkerboard pattern</a>. To save space on the shared class repo, I didn't commit the dozen or so original ~10 MB calibration images which covered most of the camera's working area. Somewhat disappointingly (but perhaps for the better), the calibration only resulted in a ~1 pixel shift across a several millimeter image; see the gray line in this thresholded closeup stacked comparison:<br><br>
+    <img src="img/distortion_correction.jpg"><br><br>
+    Ah well. I guess the 50 mm telephoto lens I procured is better than expected. At least I have a solid OpenCV calibration pipeline set up; that may prove useful in the future. <br><br>
+    Next, I wrote another <a href="jupyter/opencv_patterns.ipynb">Python script</a> to generate an ArUco pattern in Oxford-type Gcode. During debugging, I reduced the square size to 100 microns to speed up script tests. Lincoln approves of the marker but reminds us to avoid defacing currency in the future (even pennies): <br><br>
+    <img src="img/aruco_penny.jpg"><br><br>
+    I engraved a larger ArUco marker on a piece of lapped copper-clad FR1, this time with 2 mm squares. I disassembled the 3-RRR CPM (breaking another flexure in the process) and installed a commercial micrometer-driven linear stage in its place, shimming the ArUco target to the same height as the camera distortion correction checkerboard. I bolted a right angle bracket to the stage to serve as a target, and positioned the laser displacement sensor to read the stage displacement:<br><br>
+    <img src="img/aruco_cal_setup.jpg"><br><br>
+    Then I started collecting data, advancing the stage roughly 1 mm between shots and manually recording the displacement sensor reading each time. Since the sensor only measures out to 10 mm, I moved the target and rotated the stage several times to cover the whole image frame, including a diagonal run in the center. I captured 45 data points total, periodically adjusting a clip-on LED light to maximize contrast:<br><br>
+    <video width="800" autoplay loop muted>
+        <source src="vid/aruco_cal.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+    </video><br><br>
+    Initially, ArUco detection wasn't great: <br><br>
+    <img src="img/test_inaccurate.jpg"><br><br>
+    I added thresholding to the OpenCV code prior to ArUco detection and accuracy improved dramatically:<br><br>
+    <img src="img/test_thresh.jpg"><br><br>
+    Finally, I added displacement data to the script and compared laser displacement measurements to ArUco calculations, normalized to the first point in each setup. Here is the resulting plot from the first setup with a fitted line:<br><br>
+    <img src="img/aruco_cal.png"><br><br>
+    The line fit returns a slope of 12.5 um/pixel, which is line with my previous ImageJ calculation from a raw checkerboard image. The standard deviation of the error of each point for Setup 1 was 8.3 um; my guess is this could be improved with better sub-pixel detection, but it should be fine for my purposes as it represents error over the entire 10 mm range of the laser displacement sensor. I'll be correcting IK distortion at roughly this scale, meaning this error will only throw correction off by 0.1%. Data from all five setups is shown below; ideally, I should calculate all of these together so the error standard deviations represent the whole working area:<br><br>
+
+    <table style="width:100%">
+        <tr>
+            <th>setup</th>
+            <th>location</th>
+            <th>direction</th>
+            <th>slope (um/px)</th>
+            <th>stdev error (um)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>top left</td>
+            <td>horizontal</td>
+            <td>12.50</td>
+            <td>8.34</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>bottom right</td>
+            <td>horizontal</td>
+            <td>12.50</td>
+            <td>6.15</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>bottom left</td>
+            <td>vertical</td>
+            <td>12.52</td>
+            <td>6.95</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>top right</td>
+            <td>vertical</td>
+            <td>12.57</td>
+            <td>10.53</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>center</td>
+            <td>diagonal</td>
+            <td>12.49</td>
+            <td>7.48</td>
+        </tr>
+    </table><br>
+    <h2>Recursive Pinsetters</h2>
+    An irresistable tangent, using 10 pivots to apply parallel (but underconstrained) force to taper pins:<br><br>
+    <img src="img/recursive_pinsetter.jpg"><br><br>
+    <img src="img/recursive_pinsetter_close.jpg"><br><br>
+    The brass pins aren't great. They bend easily during installation, and I noticed a few joints loosening up after prolonged use, suggesting they're soft enough to plastically deform under load. I found a source for 1" stainless 7/0 taper pins; I'll swap those in before trying to build further generations of pinsetters. Having said that, the tool does work!<br><br>
+    <video width="800" autoplay loop muted>
+        <source src="vid/recursive.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+    </video><br><br>
+</div>

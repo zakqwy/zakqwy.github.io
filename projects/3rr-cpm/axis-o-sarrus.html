@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>building machines with zach</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <meta name="viewport" content="width=1035px, initial-scale=1.0">
+</head>
+<body>
+<div id="mySidenav" class="sidenav">
+    <p><span class = "weeknum"><a href=index.html>Home</a></span></p>
+    <p><span class = "weeknum"><a href=modularflexures.html>Modular Superelastic Flexures</a></span></p>
+    <p><span class = "weeknum"><a href=flexuralactuator.html>Flexural Actuator Test</a></span></p>
+    <p><span class = "weeknum"><a href=cpm.html>Compliant Parallel Manipulator</a></p>
+    <p><span class = "weeknum"><a href=bolttrial.html>Sharpened Bolt Trials</a></p>
+    <p><span class = "weeknum">|Axis-O-Sarrus|</span></p>
+    <p><span class = "weeknum"><a href=inversekinematics.html>Inverse Kinematics</a></p>
+    <p><span class = "weeknum"><a href=fatiguedatum.html>Fatigue Datum</a></p>
+    <p><span class = "weeknum"><a href=checkerboard.html>Checkerboard</a></p>
+    <p><span class = "weeknum"><a href=pinsetter.html>Pinsetter</a></p>
+    <p><span class = "weeknum"><a href=arucomarkers.html>ArUco Markers</a></p>
+    <p><span class = "weeknum"><a href=fatigueexploration.html>Fatigue Exploration</a></p>
+    <p><span class = "weeknum"><a href=sprintplanning.html>Sprint Planning</a></p>
+    <p><span class = "weeknum"><a href=finalproject.html>Final Project</a></p>
+</div>
+<div id="myMainnav" class="mainnav">
+    <h1>Axis-O-Sarrus</h1>
+    The Z-axis for this machine should be independent of the planar axes. Continuing the theme of avoiding sliding or rolling elements for motion constraint, a <a href="https://en.wikipedia.org/wiki/Sarrus_linkage">Sarrus linkage</a> presents an interesting alternative for ensuring uniaxial actuation. I built a prototype out of aluminum and installed a handful of modular flexures along with a pair of travel limit hooks:<br><br>
+    <img src="img/sarrus_test.jpg"><br><br> 
+    The base and top plate required a pair of fussy ~50 mm wire-EDM cuts. I tried to avoid repeating this operation on the side panels and used 12.7 mm waterjet cut beams for these linkages; unfortunately, I didn't give much thought to how this would underconstrain the assembly; in the video below, you can see a slight wobble as the stage is cycled:<br><br>
+    <video width="800" autoplay loop muted>
+        <source src="vid/sarrus_test.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+    </video><br><br>
+    Yes... as it turns out, the sides need some width to resist shear forces.<br><br>
+    I started putzing together a design that integrates with the existing 3-RRR parallel manipulator:<br><br>
+    <img src="img/sarrus_axis_render.jpg"><br><br>
+    The design involves a number of thick WEDM cuts, on the order of ~80 mm. My guess is I'll need to cut these details as continuous grooves, and then waterjet the relief out of the center; otherwise WEDM flushing water won't reach the lower half of the cut and the wire will short:<br><br>
+    <img src="img/sarrus_side.jpg"><br><br>
+    I haven't yet decided to embark on this journey; the Axis-O-Sarrus would quadruple the number of superelastic flexures needed, and the extra off-axis linkage required to keep the umbrella linkage flat may reduce the axis stiffness to an unacceptable degree. For now, next steps are probably (finally) thinking about kinematics and quantifying stage flatness across its working area.<br><br>
+</div>
