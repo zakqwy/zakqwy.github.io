@@ -12,7 +12,39 @@
 </div>
 <div id="myMainnav" class="mainnav">
     <h1>Clock One</h1>
+    <img src="img/clock-one_finished.jpg"><br><br>
+    I wanted to build my first clock as quickly as possible while still waking up a few interesting fabrication processes. I decided to spin a custom printed circuit board using the Bantam PCB mill, and designed the case in Fusion360 to be laser-cut out of 1/8" plywood. The board hosts a Microchip SAMD21G18 microcontroller running an Adafruit Circuit Playground Express bootloader, and can be reprogrammed via a USB-C port which also provides power to the clock during operation. The microcontroller talks via I2C to a Microchip MCP7940 realtime clock, which manages a 32.768 kHz quartz osillator and a coin-cell battery back-up. For the display, I hacked apart a convenient 1-meter spool of APA104 addressible LEDs, which are diffused by a bit of typing paper and controlled using the Arduino FastLED library.
+    <h2>Files</h2>
+    <a href=cad/clock-one-cad.zip>fabrication files</a> in *.dxf format <br>
+    <a href=cad/clock-one-pcb.zip>PCB files</a> via KiCad 5.x, including symbols/footprints <br>
+    <a href=firmware/clock-one.ino>Arduino firmware</a>, without RTC or button support <br>
+    <h2>Current Status</h2>
+    As of late March, basic clock functions work! It displays time, changes color once per minute, and knows to roll over minutes at :59 and hours at :23. I haven't implemented a clock setting function with the two onboard pushbuttons, so the easiest way to set the time is to plug the clock in at 16:48, its hardcoded power-on setpoint. I also haven't written a driver for the RTC, so the clock uses the built-in SAMD21 RC oscillator and Arduino millis() function, losing a somewhat pathetic ~half hour per day. But for now, it illustrates the concept I hoped to get across and I'm excited to work on other things. 
+    <br><br>
+    <h2>Build</h2>
+    <i>milling the PCB:</i>
+    <img src="img/clock-one_milling.jpg"><br><br>
+    <i>PCB assembly finished, incl. somewhat sketchy (but quite robust) USB-C wiring using a daughterboard:</i>
+    <img src="img/clock-one_pcb.jpg"><br><br>
+    <i>using <a href="https://github.com/adafruit/Adafruit_DAP">Adafruit_DAP</a> on another Circuit Playground Express to program the bootloader:</i>
+    <img src="img/clock-one_bootloader.png"><br><br>
+    <i>testing the current consumption of the full LED strip to stay under 500 mA; ~50% brightness is ~300 mA, which is perfect:</i>
+    <img src="img/clock-one_current-test.jpg"><br><br>
+    <i>adding kerf offsets in Fusion360 after a few test cuts:</i>
+    <img src="img/clock-one_kerf-offset.png"><br><br>
+    <i>cutting out parts using the Trotec Speedy 400 flexx:</i>
+    <img src="img/clock-one_lasercut.jpg"><br><br>
+    <i>slicing APA104s into one- or two-segment groups:</i>
+    <img src="img/clock-one_apa104s.jpg"><br><br>
+    <i>halfway through display wiring:</i>
+    <img src="img/clock-one_displaywiring.jpg"><br><br>
+    <i>diffuser tests:</i>
+    <img src="img/clock-one_nodiffuser.jpg"><br><br>
+    <i>some gentle mallet-mediated assembly:</i>
+    <img src="img/clock-one_assembly.jpg"><br><br>
+    <i>reverse side of clock after assembly, showing various press-fit wedges to hold in the PCB and display layers:</i>
+    <img src="img/clock-one_reverse.jpg"><br><br>
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<p>
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<p>
 &copy; zach fredin, 2023<p>
 </div>
