@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>Diamond Laser Lathe</title>
+    <link rel="stylesheet" href="../../stylesheets/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    body { 
+        padding: 1rem; 
+        max-width: 1000px;
+    }  
+</style>
+
+<body>
+    <h1>Diamond Laser Lathe</h1>
+    <div class="cards">
+        <div class="card">
+            <img src="img/overview-lathemode.jpg">
+        </div>
+        <div class="card">
+            <img src="img/overview-turntablemode.jpg">
+        </div>
+    </div><br>
+    As part of a broader effort to improve the performance of solid-state NMR spectroscopy by fabricating magic-angle-spinning (MAS) rotors out of diamond (you can read quite a bit more <a href="https://www.sciencedirect.com/science/article/abs/pii/S1090780723001106">here</a>; <a href=../../about.html>drop me a line</a> if you don't have institutional access to the paper and are curious), I built a precision laser lathe designed to machine both the inner and outer diameter of synthetic diamonds using a nanosecond-pulsed 532 nm laser. The images above show the apparatus mounted in the two machining positions ("lathe mode" and "turntable mode"); the short clip below shows an earlier version of the design beginning to tangentially machine the outer diameter of a diamond log, as filmed from inside the laser safety enclosure:<br><br>
+    <video width="800" autoplay loop muted>
+        <source src="img/lathe-firstlight.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video><br><br>
+    The heart of the lathe is a commercially available brushless rotary stage made by Thorlabs, originally manipulated by an open-source Odrive controller in a sweet custom case I bent and spot-welded out of sheet metal (which was later switched out for a commercial stage controller):
+    <br><br>
+    <div class="cards">
+        <div class="card">
+            <img src="img/control-cabinet.jpg">
+        </div>
+    </div><br>
+    Most of the structure was fabricated using abrasive jet machining:<br><br>
+    <div class="cards">
+        <div class="card">
+            <img src="img/fabrication-waterjet.jpg">
+        </div>
+    </div><br>
+    ... or wire-EDM, both lovely tools every shop should aspire to obtain: <br><br>
+    <video width="800" autoplay loop muted>
+        <source src="img/fabrication-wedm.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video><br><br>
+    The lathe rides on a 2-axis micron-accurate precision stage, part of our lab's Oxford A-series laser machining system. A fabricated flexural aluminum base allows the lathe itself to be trammed in to the Oxford's Cartesian axes, a somewhat tedious process which uses a non-contact laser displacement sensor to sweep along lapped reference surfaces and a set of precision microadjusters. 
+
+    <br><br>
+    <i>&copy; copyright zach fredin, massachusetts institute of technology, 2020-2022</i>
+</body>
