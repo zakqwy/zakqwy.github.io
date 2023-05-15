@@ -13,38 +13,114 @@
 
 <body>
     <h1>Diamond Laser Lathe</h1>
+    <i>documentation in progress</i><br><br>
     <div class="cards">
         <div class="card">
             <img src="img/overview-lathemode.jpg">
         </div>
         <div class="card">
+            <img src="img/render-lathemode.png">
+        </div>
+    </div>
+    <div class="cards">
+        <div class="card">
             <img src="img/overview-turntablemode.jpg">
         </div>
+        <div class="card">
+            <img src="img/render-turntablemode.png">
+        </div>
     </div><br>
-    As part of a broader effort to improve the performance of solid-state NMR spectroscopy by fabricating magic-angle-spinning (MAS) rotors out of diamond (you can read quite a bit more <a href="https://www.sciencedirect.com/science/article/abs/pii/S1090780723001106">here</a>; <a href=../../about.html>drop me a line</a> if you don't have institutional access to the paper and are curious), I built a precision laser lathe designed to machine both the inner and outer diameter of synthetic diamonds using a nanosecond-pulsed 532 nm laser. The images above show the apparatus mounted in the two machining positions ("lathe mode" and "turntable mode"); the short clip below shows an earlier version of the design beginning to tangentially machine the outer diameter of a diamond log, as filmed from inside the laser safety enclosure:<br><br>
-    <video width="800" autoplay loop muted>
-        <source src="img/lathe-firstlight.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video><br><br>
-    The heart of the lathe is a commercially available brushless rotary stage made by Thorlabs, originally manipulated by an open-source Odrive controller in a sweet custom case I bent and spot-welded out of sheet metal (which was later switched out for a commercial stage controller):
+    As part of a broader effort to improve the performance of solid-state NMR spectroscopy by fabricating magic-angle-spinning (MAS) rotors out of diamond (you can read quite a bit more <a href="https://www.sciencedirect.com/science/article/abs/pii/S1090780723001106">here</a>; <a href=../../about.html>drop me a line</a> if you don't have institutional access to the paper and are curious), I built a precision laser lathe designed to machine both the inner and outer diameter of synthetic diamonds using a nanosecond-pulsed 532 nm laser. The images above show the apparatus mounted in the two machining positions relative to the beam ("lathe mode" and "turntable mode"), while the short clip below shows an earlier version of the design beginning to tangentially machine the outer diameter of a diamond log, as filmed from inside the laser safety enclosure:<br><br>
+    <div class="cards">
+        <div class="card">
+            <video width=100% autoplay loop muted>
+                <source src="img/lathe-firstlight.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <h2>Operation</h2>
+    To use the system, the reversible 17-4 stainless diamond clamp is removed from its kinematic mount and a 1x1x6 mm diamond log is secured using the flexural clamp. These images shows the installation process for an earlier non-reversible iteration of the design (note the diamond log's existing ID machining):<br><br>
+    <div class="cards">
+        <div class="card">
+            <img src="img/clamp-positions.jpg">
+        </div>
+    </div>
+    <div class="cards">
+        <div class="card">
+            <img src="img/clamp-diamond.jpg">
+        </div>
+    </div>
+
+
+    <h2>Performance</h2>
+
+    <h2>Design</h2>
+    The laser lathe is really just a collection of adjustable brackets, joined to one another and other objects using bolts or magnetically secured <a href="https://en.wikipedia.org/wiki/Kinematic_coupling">Maxwell kinematic couplings</a>. All of the various elements are shown below in a pair of annotated diagrams for lathe-mode and turntable-mode, respectively:
     <br><br>
     <div class="cards">
         <div class="card">
-            <img src="img/control-cabinet.jpg">
+            <img src=img/lathemode_annotated.png>
         </div>
-    </div><br>
-    Most of the structure was fabricated using abrasive jet machining:<br><br>
+    </div>
+    <br>
+    <div class="cards">
+        <div class="card">
+            <img src=img/turntablemode_annotated.png>
+        </div>
+    </div>
+    <br>
+    The core category-defining rotary axis actuator is a commercially available brushless rotary stage made by Thorlabs. Using this stage was a compromise; by accepting the upfront cost and specifications of this component, it meant we wouldn't have to worry about mechanical performance and could focus on alignment and control. Initially, I built a neat folded sheet metal enclosure to house an Odrive-based custom controller: 
+    <br><br>
+    <div class="cards">
+        <div class="card">
+            <img src=img/control-cabinet.jpg>
+        </div>
+    </div>
+    <br>
+    Likewise, the remaining lathe axes are "owned" (as in, their repeatability, stiffness, orthogonality, etc.) by the host machining center, an Oxford Lasers A-series machine with three micron-accurate axes and a frequency-doubled Nd-YAG 532 nm nanosecond-pulsed source. Within that system, the beam is expanded to 10 mm and delivered to the workpiece using a 100 mm focal length doublet, resulting in a focused diameter (86% of total power) of around 13 microns. At full power, the average output is around 5 W, as measured by an onboard thermal power meter. 
+    <br>
+    <h2>Fabrication</h2>
+    Most of the laser lathe is made out of 3-10 mm 6061 aluminum stock which has been cut using abrasive jet machining:<br><br>
     <div class="cards">
         <div class="card">
             <img src="img/fabrication-waterjet.jpg">
         </div>
     </div><br>
-    ... or wire-EDM, both lovely tools every shop should aspire to obtain: <br><br>
-    <video width="800" autoplay loop muted>
-        <source src="img/fabrication-wedm.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video><br><br>
-    The lathe rides on a 2-axis micron-accurate precision stage, part of our lab's Oxford A-series laser machining system. A fabricated flexural aluminum base allows the lathe itself to be trammed in to the Oxford's Cartesian axes, a somewhat tedious process which uses a non-contact laser displacement sensor to sweep along lapped reference surfaces and a set of precision microadjusters. 
+    The kinematic inserts cut from a pre-hardened block of 4140 alloy steel in two steps using wire-EDM:<br><br>
+    <div class="cards">
+        <div class="card">
+            <video width=100% autoplay loop muted>
+                <source src="img/fabrication-wedm.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div><br>
+    The inserts are D-shaped to enforce angular orientation, and are cut to the same nominal size as the waterjetted holes in the various aluminum brackets. The kerf angle (what's left of it, since our waterjet cutter has lovely built-in kerf angle correction axes), surface roughness, and relative softness of the cut aluminum surface allows the hard inserts to be securely press-fit using an arbor press. The image below shows an installed insert, two freshly cut inserts, and the blank log from the first wire-EDM operation:<br><br>
+    <div class="cards">
+        <div class="card">
+            <img src="img/kinematic-inserts-photo.jpg">
+        </div>
+    </div><br>
+    A few other parts get press-fit, including the 1/2" x 1/8" rare earth magnets which in the center of the mounts which hold the assemblies together, and the purchased hardened dome pins that form the non-adjustable contacts opposite various microadjusters. Due to their soft brass sleeve construction, the microadjuster holes are reamed to final diameter and secured using anaerobic adhesive per the manufacturer's directions. 
+
+    <h2>Alignment</h2>
+    <div class="cards">
+        <div class="card">
+            <video width=100% autoplay loop muted>
+                <source src="img/oxford_lathe_alignment.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <h2>Iterations</h2>
+    <div class="cards">
+        <div class="card">
+            <img src=img/comparo.jpg>
+        </div>
+    </div>
+    <br>
 
     <br><br>
     <i>&copy; copyright zach fredin, massachusetts institute of technology, 2020-2022</i>
