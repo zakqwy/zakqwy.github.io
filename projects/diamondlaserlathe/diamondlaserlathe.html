@@ -39,21 +39,8 @@
             </video>
         </div>
     </div>
-    <h2>Operation</h2>
-    To use the system, the reversible 17-4 stainless diamond clamp is removed from its kinematic mount and a 1x1x6 mm diamond log is secured using the flexural clamp. These images shows the installation process for an earlier non-reversible iteration of the design (note the diamond log's existing ID machining):<br><br>
-    <div class="cards">
-        <div class="card">
-            <img src="img/clamp-positions.jpg">
-        </div>
-    </div>
-    <div class="cards">
-        <div class="card">
-            <img src="img/clamp-diamond.jpg">
-        </div>
-    </div>
-
-
-    <h2>Performance</h2>
+    <br>
+    Two critical factors enabled this project: first, I had unrestricted access to precision fabrication and metrology equipment, including a wire-EDM, a waterjet cutter, an SEM, a laser micromaching system, a telecentric measurement instrument, and a micro-CT scanner; and second, this was part of a collaboration between two research groups who each brought a unique perspective and skillset to the table. 
 
     <h2>Design</h2>
     The laser lathe is really just a collection of adjustable brackets, joined to one another and other objects using bolts or magnetically secured <a href="https://en.wikipedia.org/wiki/Kinematic_coupling">Maxwell kinematic couplings</a>. All of the various elements are shown below in a pair of annotated diagrams for lathe-mode and turntable-mode, respectively:
@@ -78,7 +65,76 @@
         </div>
     </div>
     <br>
-    Likewise, the remaining lathe axes are "owned" (as in, their repeatability, stiffness, orthogonality, etc.) by the host machining center, an Oxford Lasers A-series machine with three micron-accurate axes and a frequency-doubled Nd-YAG 532 nm nanosecond-pulsed source. Within that system, the beam is expanded to 10 mm and delivered to the workpiece using a 100 mm focal length doublet, resulting in a focused diameter (86% of total power) of around 13 microns. At full power, the average output is around 5 W, as measured by an onboard thermal power meter. 
+    I ran into some headwinds with the Odrive encoder interface; the Thorlabs stage uses an extremely high resolution encoder which the Odrive's microcontroller couldn't keep up with at higher rotational speeds. Eventually, we bought the recommended Thorlabs controller which has a handy Windows-based USB interface. In both cases, we never tried to integrate the lathe control with the Oxford controller, so the system was always run as a fairly slow lathe, rather than a true 4-axis machine.
+    <br><br>
+    The linear lathe axes are "owned" (as in, their repeatability, stiffness, relative orthogonality, etc.) by the host machining center, an Oxford Lasers A-series machine with three micron-accurate axes and a frequency-doubled Nd-YAG 532 nm nanosecond-pulsed source. Within that system, the beam is expanded to 10 mm and delivered to the workpiece using a 100 mm focal length doublet, resulting in a focused diameter (86% of total power) of around 13 microns. At full power, the average output is around 5 W as measured by an onboard thermal power meter. 
+    <br><br>
+    The first part of the lathe is cut from a 10 mm aluminum plate, and is bolted to the Oxford stage using three M3 bolts. This base piece has three press-fit kinematic inserts made from hardened steel which support the rest of the system, along with a magnet to hold the mating part in place. The front insert is on the far end of a double bar flexure, and can be moved using an orthogonal microadjuster:
+    <br><br>
+    <div class="cards">
+        <div class="card">
+            <img src=img/render-base.png>
+        </div>
+    </div>
+    <br>
+    The entire stage is deliberately canted a few degrees clockwise when mounted to the Oxford, meaning the microadjuster always applies a bit of preload. Note that the gap between the microadjuster sleeve and the bearing surface is large enough to press-fit the sleeve in place during installation, so the sleeve flange ends up on the inside surface. As compared to a previous flexural base which attempted to maintain rotational center, this stage slightly changes the distance between the three kinematic inserts as the microadjuster moves. This means the yaw adjustment introduces a linear error; this ends up no mattering, since the diamond rod is measured in-situ and re-machined as needed. 
+    <br><br>
+    Another piece of cut aluminum rests on top of the base piece, and includes another magnet to keep the parts assembled. There are two parts that take turns serving this role, depending on whether the machine is in lathe or turntable mode. For the latter:
+    <br><br>
+    <div class="cards">
+        <div class="card">
+            <img src=img/render-base2.png>
+        </div>
+    </div>
+    <br>
+    The kinematic inserts on the base support two kinds of posts on this piece; a fixed dome-head pin, and a microadjuster with a ball tip. For this orientation, which is used for turntable mode, two of the supports are microadjusters so the stage can be leveled in two dimensions:
+    <br><br>
+    <div class="cards">
+        <div class="card">
+            <img src=img/render-base-supports.png>
+        </div>
+    </div>
+    <br>
+    Both the microadjusters and the pins precisely match up with the kinematic inserts, providing six hardened points of contact:
+    <br><br>
+    <div class="cards">
+        <div class="card">
+            <img src=img/render-microadjuster-detail.png>
+        </div>
+    </div>
+    <br>
+    The rotary stage bolts to this plate:
+    <br><br>
+    <div class="cards">
+        <div class="card">
+            <img src=img/render-withstage.png>
+        </div>
+    </div>
+    <br>
+    The lathe mode base also bolts to the rotary stage. Note this plate has two fixed and one adjustable mount, since one of its angular orientation adjustments is handled by the base yaw adjustment:
+    <br><br>
+    <div class="cards">
+        <div class="card">
+            <img src=img/render-withlathebase.png>
+        </div>
+    </div>
+    <br>
+    A 2.4 mm thick piece of 17-4 stainless steel bolts on to the rotating face of the stage. This material serves as an optical reference during stage alignment, so the stock is factory ground flat and lapped on a granite surface plate using fine-grit paper prior to installation. A piece of cut 6 mm aluminum bolts to the 17-4, and includes three press-fit domed pins and a press-fit magnet. The diamond itself fits in a flexural 17-4 clamp with three hardened double-sided kinematic inserts:
+    <br><br>
+    <div class="cards">
+        <div class="card">
+            <img src=img/render-diamond-mount.png>
+        </div>
+    </div>
+    <br>
+    Since 17-4 is ferromagnetic, the diamond clamp doesn't need a matching magnet to keep it secure. The three inserts allow the clamp to be flipped over without disturbing the diamond. Note the diamond log stickout; targeting a 4.6 mm tube from a 6.0 mm log meant we needed at least 5 mm exposed to have enough space to square the end and part off:
+    <br><br>
+    <div class="cards">
+        <div class="card">
+            <img src=img/render-diamond-mount2.png>
+        </div>
+    </div>
+    <br>
     <br>
     <h2>Fabrication</h2>
     Most of the laser lathe is made out of 3-10 mm 6061 aluminum stock which has been cut using abrasive jet machining:<br><br>
@@ -113,6 +169,21 @@
             </video>
         </div>
     </div>
+
+    <h2>Operation</h2>
+    To use the system, the reversible 17-4 stainless diamond clamp is removed from its kinematic mount and a 1x1x6 mm diamond log is secured using the flexural clamp. These images shows the installation process for an earlier non-reversible iteration of the design (note the diamond log's existing ID machining):<br><br>
+    <div class="cards">
+        <div class="card">
+            <img src="img/clamp-positions.jpg">
+        </div>
+    </div>
+    <div class="cards">
+        <div class="card">
+            <img src="img/clamp-diamond.jpg">
+        </div>
+    </div>
+
+    <h2>Performance</h2>
 
     <h2>Iterations</h2>
     <div class="cards">
