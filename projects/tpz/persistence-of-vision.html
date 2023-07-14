@@ -21,7 +21,7 @@
     <h1>Hand Cranked Persistence-of-Vision Display</h1>
     A wooden crank attached to a geared mechanism and a clear plastic wiper. You turn the handle. Huzzah! A green display appears out of thin air and whips by before extinguishing! Magic. <br><br>
     <img src="img/persistence-of-vision_tpz.jpg"><br><br>
-    <a href="https://en.wikipedia.org/wiki/Persistence_of_vision">Persistence-of-vision</a> displays rely on the optical illusion created when a light flashes briefly and leaves a visible afterimage. By stringing together a series of these periodic flashes through time and space, you can assemble an image which seems to appear out of nowhere and disappears almost instantly. Commercial rotating LED displays do this continuously to produce circular video screens, while spoke-mounted safety lights (like <a href="https://www.adafruit.com/product/5">this wonderful kit from Adafruit</a>) use the rotating bike wheel to achieve the effect. The image above uses a 1/2-second shutter (hence Matt's blurriness, in addition to being out of focus) to capture the entire TPZ logo; the video below shows the mechanism in action, but the fast shutter misses most of the display:
+    <a href="https://en.wikipedia.org/wiki/Persistence_of_vision">Persistence-of-vision</a> displays rely on the optical illusion created when a light flashes briefly and leaves a visible afterimage. By stringing together a series of these periodic flashes through time and space, one can assemble an image which seems to appear out of nowhere and disappears almost instantly. Commercial rotating LED displays do this continuously to produce circular video screens, while spoke-mounted safety lights (like <a href="https://www.adafruit.com/product/5">this wonderful kit from Adafruit</a>) use the rotating bike wheel to achieve the effect. This design uses a long clear wiper to move the pixel array in a large arc; the pixels themselves are the ends of fiber optic strands which transmit light from a display board located lower on the wiper. The image above uses a 1/2-second shutter (hence Matt's blurriness, in addition to being out of focus) to capture the entire TPZ logo; the video below shows the mechanism in action, but the fast shutter misses most of the display:
     <br><br>
     <div class="cards">
         <div class="card">
@@ -68,14 +68,14 @@
     A subtle but important feature is that the display only actuates on the sprung return stroke of the wiper, which should stay consistent regardless of handle rotation speed. That, combined with the fairly constant speed of the wiper after initial acceleration, means subsequent display lines can be clocked using a constant rather than measured wiper speed (although this could be figured out by watching switch timing).<br><br>
     In use, it is best to securely clamp the base to a table or shelf. A pair of quick clamps works and avoids with the mechanism if one is strategic with placement, but a permanent solution would be ideal.<br><br>
     <img src="img/persistence-of-vision_gears.jpg"><br><br>
-    The linear array of 32 display pixels are the flat ends of 1.5 mm plastic fiber optic strands, press-fit into an array of precisely sized holes near the top of the wiper. Why fiber optic strands? They are neat. Also, I wanted to minimize wiper visibility and had already found a nice sheet of 1/4" clear acrylic; press-fit fibers would keep the opaque PCB (even just the LEDs) out of the displayed area. While the outline and mechanical holes on the wiper are cut using the router on the Zund, which provided an excellent machined finish and sufficient parallelism, the fiber holes are laser-cut from the fiber entrace side. Prior to fabricating the wiper, I cut a test coupon with a series of holes to determine the optimal diameter for that particular laser to achieve a tight press-fit. Fortunately, the fiber is consistent enough that a single value worked for all of the holes.<br><br>
+    The linear array of 32 display pixels are the flat ends of 1.5 mm plastic fiber optic strands, press-fit into an array of precisely sized holes near the top of the wiper. Why fiber optic strands? They are neat. Also, I wanted to minimize wiper visibility and had already found a nice sheet of 1/4" clear acrylic; press-fit fibers would keep the opaque PCB (even just the LEDs) out of the displayed area. While the outline and mechanical holes on the wiper are cut using the router on the Zund, which provided an excellent machined finish and sufficient parallelism, the fiber holes are laser-cut from the fiber entrace side. Prior to fabricating the wiper, I cut a test coupon with a series of holes to determine the optimal diameter for that particular laser to achieve a tight press-fit. Fortunately, the fiber diameter is consistent enough that a single value worked for all of the holes.<br><br>
     <img src="img/persistence-of-vision_fibers.jpg"><br><br>
     The fibers are routed along the back of the wiper and terminate to another laser cut acrylic piece, this one tasked with holding each fiber above a corresponding LED on the PCB. To minimize light leaks between pixels, I also cut a bit of thick black cardboard with masking bars between each LED, and sandwiched it between the PCB and the fiber-holding acrylic plate. Fibers and various flat bits are secured using acrylic clips and tapered wedges. <br><br>
-    The LEDs are grouped into four bytes, each of which is driven by an HC595 shift register and individual current-limiting resistors. The shift registers are daisy-chained and share an OUTPUT_ENABLE pin, so the whole array can be flashed on at once after the latest pixel states are shifted in. As with any PCB design project, there was some iteration between the schematic and the layout; since this is a single-sided board I had to include a few strategic jumpers, such as those shown here on the SELECT, QA, and power lines: <br><br>
+    The LEDs are grouped into four bytes, each of which is driven by an HC595 shift register and individual current-limiting resistors. The shift registers are daisy-chained and share an OUTPUT_ENABLE pin, so the whole array can be flashed on at once after the latest pixel states are shifted in. As with any PCB design project, there was some iteration between the schematic and the layout; since this is a single-sided board I had to include a few strategic jumpers, such as those shown here on the SELECT, QA, and power lines (one shift register of four shown): <br><br>
     <img src="img/persistence-of-vision_schematic.jpg"><br><br>
     The PCB is sized to fit along the back of the wiper, and includes pads for the serial data stream and other external connections. As usual, I could have allowed myself a bit more space for masking, mounting holes, pads, etc. I used 0.25 mm (10 mil) spaces and traces, intending to use an angled engraving bit rather than my usual 1/64" end mill:<br><br>
     <img src="img/persistence-of-vision_layout.jpg"><br><br>
-    Assembly started at the middle with the TSSOP-packaged HC595s. I took my time and used plenty of gel flux, SAC 305 lead-free solder, and a 1/16" chisel tip on a 750 F soldering iron:<br><br>
+    I fabricated the board without incident on the Bantam PCB mill. Assembly started at the middle with the TSSOP-packaged HC595s. I took my time and used plenty of gel flux, SAC 305 lead-free solder, and a 1/16" chisel tip on a 750 F soldering iron, followed by an isopropyl alcohol scrub to clean up:<br><br>
     <img src="img/persistence-of-vision_pcb-assembly.jpg"><br><br>
     After assembly and a few good continuity-checking sessions (and one or two fixes), I wired the board up to one of the shift registers on one of our free <a href="https://www.adafruit.com/product/5302">KB2040</a>s. I stuck everything down to a bit of laser cutting scrap (shaped like a bull, in this case) and ran the LEDs through their paces with a simple binary counter program (shown here with the fiber mask installed and a bit of fiber inserted in the acrylic fiber fit test plate):<br><br>
     <img src="img/persistence-of-vision_pcb-test.jpg"><br><br>
@@ -84,19 +84,50 @@
     Final fiber installation took some time. I kept the LEDs lit to improve ambiance during routing, trimming, re-trimming, and press-fitting. Fortunately, I was able to cleave the fibers square enough with a box cutter that I didn't need to polish the display ends.<br><br>
     <img src="img/persistence-of-vision_routing-fibers.jpg"><br><br>
     The display board and the two switches are wired to the KB2040 using polyurethane-insulated 34 AWG magnet wire, which is tiny and can be twisted together to form a nicely organized micro-bundle. The microcontroller board snaps into a milled pocket on the rear plywood panel.<br><br>
+    <img src="img/persistence-of-vision_wiring.jpg"><br><br>
     <img src="img/persistence-of-vision_switches.jpg"><br><br>
-    <br>
-    optics
-    <br>
-    electronics
-    <br>
-    firmware
-    <br>
-    iterate
-    <br><br>
-    <img src="img/persistence-of-vision_0x55.jpg"><br><br>
+    During early testing, a few "shaft securement" faults occured. The follower occasionally loosened and popped out; I'd hoped the stickout was short enough and the fit sufficient to avoid any kind of clip situation, but it still happened enough to be concerning. I tried slitting the end of the shaft and driving in a tiny mahogany wedge, but I think it was ultimately a few dots of cyanoacrylate that held it together:<br><br>
+    <img src="img/persistence-of-vision_follower.jpg"><br><br>
+    The cam also liked to slip a bit, so I carved a little mahogany pin and carefully drilled a matching hole through the cam and into the cam shaft:<br><br>
+    <img src="img/persistence-of-vision_shaft-pin.jpg"><br><br>
+    If memory serves, the handle also slipped a bit and was secured with a healthy glob of wood glue. <br><br>
+    The firmware is pretty bare-bones, as anyone who has seen one of my electromechanical projects probably expects. 
     
+    Initially, I tried driving the display with my favorite test pattern:<br><br>
+    <code>
+        0x55<br>
+        0xAA<br>
+    </code>
+    <br>
+    Hexadecimal <code>55</code> is <code>01010101</code> in binary; <code>AA</code> is <code>10101010</code>. By alternating these values (well, more precisely, <code>0x55555555</code> and then <code>0xAAAAAAAA</code>, since it's a 4-byte display) I can produce a recognizable calibration checkerboard. To keep things dead simple (and fast), I'm using the SPI peripheral to drive the shift registers:<br><br>
+    <code>
+        SPI.beginTransaction(SPISettings(4000000, LSBFIRST, SPI_MODE0));<br>
+        digitalWrite(SEL, LOW);<br>
+        SPI.transfer(0x55);<br>
+        SPI.transfer(0x55);<br>
+        SPI.transfer(0x55);<br>
+        SPI.transfer(0x55);<br>
+        digitalWrite(SEL, HIGH);<br>
+        SPI.endTransaction();<br>
+        delayMicroseconds(line_delay);<br>
+        SPI.beginTransaction(SPISettings(4000000, LSBFIRST, SPI_MODE0));<br>
+        digitalWrite(SEL, LOW);<br>
+        SPI.transfer(0xAA);<br>
+        SPI.transfer(0xAA);<br>
+        SPI.transfer(0xAA);<br>
+        SPI.transfer(0xAA);<br>
+        digitalWrite(SEL, HIGH);<br>
+        SPI.endTransaction();<br>
+        delayMicroseconds(line_delay);<br>
+    </code>
+    <br>
+    I added a bit of logic to watch the limit switches and included two delays: <code>disp_delay</code>, which set the time between the second limit switch actuation and the start of the display (this ended up being left at 0), and <code>line_delay</code>, which for this set of conditions (spring constant, SPI clock rate, etc) produced square pixels with a value of 400 microseconds. Here is an early test showing a few too many lines; the long exposure shows where the arm bounces back and keeps displaying pixels:<br><br>
+    <img src="img/persistence-of-vision_0x55.jpg"><br><br>
+    I reduced the number of loop cycles and prepared the display image using a program called LCD Image Converter, which pulls in a black-and-white bitmap and converts it into a series of hex values. Using a utility like this (there are many out there, including some that integrate into image editing tools) allows one to quickly sort through fussy details like reversed bytes:<br><br>
     <img src="img/persistence-of-vision_scrambled.jpg"><br><br>
+    Eventually I putzed my way to a legible TPZ logo. Note the intensity variation between LEDs; based on apparent uniformity on the PCB, I think this is caused by differences in fiber light transmission, likely dominated by variation in end cleaving and coupling losses:<br><br>
+    <img src="img/persistence-of-vision_tpz-closeup.jpg"><br><br>
+    A future revision of this project could address this with selective post-fiber-installation LED resistor adjustments, or perhaps it would go away with better fiber handling practices. I would also want to improve shaft retention (perhaps, at minimum, by machining flats on shafts I don't want to slip), and might eliminate the 3:1 gear advantage to discourage users from spinning the crank too fast. And the paddle is bowing a bit under the combined "coiling-back-up" force of the 32 fibers; it could probably use a brace of some kind.<br><br>
     <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<p>
 &copy; zach fredin, 2023<p>
 </div>
