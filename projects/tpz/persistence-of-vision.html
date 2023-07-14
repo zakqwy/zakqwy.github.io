@@ -125,6 +125,21 @@
     <img src="img/persistence-of-vision_0x55.jpg"><br><br>
     I reduced the number of loop cycles and prepared the display image using a program called LCD Image Converter, which pulls in a black-and-white bitmap and converts it into a series of hex values. Using a utility like this (there are many out there, including some that integrate into image editing tools) allows one to quickly sort through fussy details like reversed bytes:<br><br>
     <img src="img/persistence-of-vision_scrambled.jpg"><br><br>
+    The display firmware looks a lot like the test script; it just iterates through an array called <code>image_data_tpz[]</code>, which stores all the hex values from the export tool:<br><br>
+    <code>
+    for (int i = 0; i < img_bytes; i+=4) {<br>
+        SPI.beginTransaction(SPISettings(4000000, MSBFIRST, SPI_MODE0));<br>
+        digitalWrite(SEL, LOW);<br>
+        SPI.transfer(image_data_tpz[i]);<br>
+        SPI.transfer(image_data_tpz[i+1]);<br>
+        SPI.transfer(image_data_tpz[i+2]);<br>
+        SPI.transfer(image_data_tpz[i+3]);<br>
+        digitalWrite(SEL, HIGH);<br>
+        SPI.endTransaction();<br>
+        delayMicroseconds(line_delay);<br>
+    }<br>
+    </code>
+    <br><br>
     Eventually I putzed my way to a legible TPZ logo. Note the intensity variation between LEDs; based on apparent uniformity on the PCB, I think this is caused by differences in fiber light transmission, likely dominated by variation in end cleaving and coupling losses:<br><br>
     <img src="img/persistence-of-vision_tpz-closeup.jpg"><br><br>
     A future revision of this project could address this with selective post-fiber-installation LED resistor adjustments, or perhaps it would go away with better fiber handling practices. I would also want to improve shaft retention (perhaps, at minimum, by machining flats on shafts I don't want to slip), and might eliminate the 3:1 gear advantage to discourage users from spinning the crank too fast. And the paddle is bowing a bit under the combined "coiling-back-up" force of the 32 fibers; it could probably use a brace of some kind.<br><br>
