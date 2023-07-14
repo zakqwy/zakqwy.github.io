@@ -38,9 +38,25 @@
     <a href=cad/persistence-of-vision-pcb.zip>PCB files</a> via KiCad 5.x, including symbols/footprints <br>
     <a href=firmware/persistence-of-vision.ino>Arduino firmware</a> for an <a href="https://www.adafruit.com/product/5302">Adafruit KB2040</a>, included free in a few recent orders (thanks!) <br>
     <h2>Current Status</h2>
-    Works. Turn handle gently. 
+    Works. Turn handle gently, and only ever counter-clockwise. 
     <h2>Design</h2>
-    mechanism
+    The display started out as a clock; if you look carefully through the design and fabrication files, you'll probably find references to "Clock 4". Beyond that, a number of vague ideas drove design choices, including:<br><br>
+    desire to use TPZ machines<br>
+    love of fiber optics<br>
+    availability of materials<br>
+    not having much time left<br>
+    joy inherent to gears and cranks and cams<br>
+    limit switch fiddling<br>
+    <br>
+    I used Fusion360 for the design, mostly because I'm quite comfortable in the tool and can quickly use it to model and play with simple kinematics. Fusion360 is a double-edged sword, of course; it wants an internet connection, exports are difficult, version control is platform-based, the free version is progressively more limiting, etc. Alas, the mechanical design files above aren't helpful parameterized parts, but rather *.iges models and *.dxf outlines that should at least be fairly future-proof.<br><br>
+    <img src="img/persistence-of-vision_diagram.png"><br><br>
+    The wiper is the long clear acrylic arm that carries the green bits of the display and swings back and forth. I included dummy pixels in one of the model's sketches, which helped me visualize things like pixel spacing, resolution, digit height, arc angle, etc.:<br><br>
+    <img src="img/persistence-of-vision_dummy-pixels.jpg"><br><br>
+    The base is a pair of nearly identical 9 mm (~3/8") plywood plates which are connected with posts and support three free-turning shafts: the crank shaft, the cam shaft, and the wiper shaft. Posts and shafts are both machined from a wooden dowel, with the former sized for a light interference fit and the latter supported by skate bearings. The crank shaft sends user-provided torque from the wooden crank into a 27-tooth wooden gear, which meshes with a 9-tooth wooden gear press-fit onto the cam shaft. This advances a linear 180-degree cam which will effectively produce a sawtooth-then-gap displacement to a follower. The follower is attached to the wiper and tensioned with a rubber band, such that when the cam is rotated the wiper slowly moves left before quickly swinging back to the right and hitting a padded bumper. The wiper also has a little nub opposite the follower, which sequentially triggers a pair of switches to let the electronics know where (roughly) the arm is.<br><br>
+    <img src="img/persistence-of-vision_mechanism.png"><br><br>
+    A subtle but important feature is that the display only actuates on the sprung return stroke of the wiper, which should stay consistent regardless of handle rotation speed. That, combined with the fairly constant speed of the wiper after initial acceleration, means subsequent display lines can be clocked using a constant rather than measured wiper speed (although this could be figured out by watching switch timing).<br><br>
+    In use, it is best to securely clamp the base to a table or shelf. A pair of quick clamps works and avoids with the mechanism if one is strategic with placement, but a permanent solution would be ideal.<br><br>
+    <img src="img/persistence-of-vision_gears.jpg"><br><br>
     <br>
     optics
     <br>
@@ -50,9 +66,10 @@
     <br>
     iterate
     <br><br>
+    <h2>Fabrication</h2>
     <img src="img/persistence-of-vision_0x55.jpg"><br><br>
     <img src="img/persistence-of-vision_fibers.jpg"><br><br>
-    <img src="img/persistence-of-vision_gears.jpg"><br><br>
+    
     <img src="img/persistence-of-vision_scrambled.jpg"><br><br>
     <img src="img/persistence-of-vision_switches.jpg"><br><br>
     <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<p>
