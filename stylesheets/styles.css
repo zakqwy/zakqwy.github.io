@@ -7,6 +7,11 @@ body {
     padding: 1rem; 
 }
 
+ul {
+    list-style-type: none;
+  }
+  
+
 .card {
     padding: 0.25rem;
     position: relative;
