@@ -4,7 +4,7 @@ number-munchers,1986
 ancient-empires,1990
 operation-neptune,1991
 super-mario-bros-3,1988
-civilization-IV,2016
+civilization-vi,2016
 minecraft,2011
 ori-and-the-blind-forest,2015
 vvvvvv,2010
@@ -24,3 +24,11 @@ hyperrogue,2011
 moria,1983
 myst,1993
 descent-II,1996
+vampire-survivors,2022
+subnautica,2018
+mario-wonder,2023
+baldurs-gate-3,2023
+super-mario-64,1996
+zelda-breath-of-the-wild,2017
+portal-2,2011
+katamari-damacy,2004
