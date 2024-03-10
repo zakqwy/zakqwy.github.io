@@ -36,11 +36,11 @@ ul {
 /* Bottom right text */
 .text-block {
     position: absolute;
-    bottom: 1.5rem;
-    left: 1rem;
+    bottom: 1.2rem;
+    left: 0.8rem;
     background: rgb(0, 0, 0); /* Fallback color */
     background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
     color: white;
-    padding: 0.5rem;
+    padding: 0.4rem;
 } 
 
