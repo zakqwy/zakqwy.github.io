@@ -1,0 +1,114 @@
+<html>
+<head>
+    <title>PLAttice</title>
+    <link rel="stylesheet" href="../../stylesheets/styles.css">
+    <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    body { 
+        padding: 1rem; 
+        max-width: 1000px;
+    }  
+    .cards {
+            max-width: 1300px;
+            display: grid;
+            grid-gap: 0.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+        }
+</style>
+
+<body>
+    <h1>PLAttice</h1>
+    <div class="cards">
+        <div class="card">
+            <img src="img/plattice_office.jpg">
+        </div>
+    </div>
+    <br>
+    PLAttice: it's an assembled lattice, built entirely out of 3D printed parts made from PLA. The name could also be short for Plastic Lattice, I suppose. PLAttice is composed of struts, nodes, and pins; in this example, the parts are grey, brown, and ivory colored, respectively. The pins are slightly tapered and hold the struts into the nodes using what I have previously called an orthogonal taper pin joint, previously demonstrated in <a href="../3rr-cpm/modularflexures.html">metal</a> and <a href="https://github.com/zakqwy/caning-peg-lattices">wood</a>. PLAttice came about because I got a new personal 3D printer and wanted to reversibly construct structures substantially larger than the print bed. The project succeeded nicely, with a PLAttice beam weighing around 800 g/m (roughly equivalent to 2x2 lumber) and being capable of spanning up to around 4 m before buckling. The struts are far and away the weakest member, failing in compression long before the joints or nodes give out; a reasonable iteration would relax the PLA-only requirement and use a different material (like bamboo dowels) for these elements, or at least beef up their width a bit.
+    <br><br>
+    <div class="cards">
+        <div class="card">
+            <img src="img/plattice_tunnel.jpg">
+        </div>
+    </div>
+    <br>
+    PLAttice doesn't form cubic crystalline structures; instead, it's designed to make square truss beams that can double up side-to-side or branch off at 60 degree angles as needed. In that way it's somewhat more anisotropic and limited as compared to systems based on cubic stacking arrangements, but works well for forms that are long and spindly and perhaps a bit tree-like. The nodes each host up to ten struts, but in practice a typical box beam only uses six joints per node. This tiling keeps nodes relatively small and makes eight of the ten pins easy to install and remove; the last two have to angle a bit during insertion to clear support tabs, but they aren't too bad with a bit of practice.
+    <br><br>
+    In addition to the three core parts, there are a few extra bits that help structures fit into the built environment. End nodes and short struts square off the end of box beams, and can be bolted onto a routed plywood panel to make a nice foot, which should be backed up with self-adhesive rubber pads for a bit of extra friction against the floor:
+    <br><br>
+    It is nice to squeeze a big tower gently between a floor and a ceiling. On the upper side, slightly modified end nodes capture M5 nuts, and an adjustable foot with an M5 button head bolt and another nut allow columns to wedge themselves into rooms. Again, use a self-adhesive rubber pad for a bit of extra ceiling friction:
+    <br><br>
+    This all comes together nicely when one needs an overhead lamp for a kitchen table, but doesn't want to put a fussy hook into the ceiling. This is totally simpler, I promise! I bought the lovely cyanotype shade from <a href="https://www.instagram.com/srithumati/">Sri Thumati</a> at the 2025 Somerville Open Studios art walk; her work is really the star here, with the inverted organic oak leaf silhouette creating dramatic contrast against the regular spacing of the PLAttice struts:
+    <br><br>
+    I designed and fabricated two tools to support PLAttice. One is a simple trimming jig for the pins; they must be printed parallel to the bed to keep layer lines facing the right way, which results in a small nub of plastic that I skim off with a razor. The jig protects fingers and makes this operation quite fast: 
+    <br><br>
+    <div class="cards">
+        <div class="card">
+            <img src="img/pin_trimming_tool.jpg">
+        </div>
+    </div>   
+    <br>
+    The other tool is a PETG assembly/disassembly chomper that helps drive pins home and pop them out. It comes off the bed in one piece and uses a small crossed-beam flexure as a pivot, and includes a bunch of holes in the handle to store extra pins (which are just a bit too big, so I don't usually try to use them):
+    <br><br>
+    <div class="cards">
+        <div class="card">
+            <img src="img/assembly_1.jpg">
+        </div>
+        <div class="card">
+            <img src="img/assembly_2.jpg">
+        </div>
+    </div>   
+    <br>
+    This tool really could use another iteration, as the tip sometimes slips off the end of the pins during removal. I found that a small pair of locking pliers helps things along, but is a bit fussier to align and occasionally cracks pin heads:
+    <br><br>
+    <div class="cards">
+        <div class="card">
+            <img src="img/disassembly_tool.jpg">
+        </div>
+        <div class="card">
+            <img src="img/disassembly_pliers.jpg">
+        </div>
+    </div>   
+    <br>
+    This brings me to an important learning: PLAttice isn't a toy, mostly because assembling and disassembling PLAttice isn't particularly fun. Perhaps it's "type two fun", since one can still build interesting and satisfying and occasionally useful structures. But the parts are all somewhat sharp, and the tool slipping off pins is a real bummer, and pre-inserting the pins in before using the tool can be a bit painful. I also found that I just wasn't used to handling 2-4 m stiff lightweight sharp structures in a small-ish space (my apartment) filled with breakable things. Nothing important broke, but the walls and ceiling definitely have a few extra marks. And despite the assembly polarity marks -- dots on the struts, and inset areas on the nodes -- it's still annoyingly easy to lose track of rotational symmetry and assemble half of a lattice with the "wing" part of the node rotated the wrong way. The previously linked <a href="https://github.com/zakqwy/caning-peg-lattices">caning peg lattices</a>, by contrast, are tons of fun because they go together and come apart with predictable and non-painful effort, and it's really difficult to put them together incorrectly. 
+    <br><br>
+    A few fabrication notes! Print orientation matters on all three part types, not just pins. Struts are easy, as they print without support material in their preferred orientation (flat on the bed), but nodes need to be massaged a bit. Printing them with any of the faces parallel to the print bed means at least a few of the joints will have weak spots and may break during pin insertion. Rotating them 45 degrees uses up a bit more support material but seems to produce much stronger parts. At 15% infill, 5 perimeters, and otherwise default settings, my P1S prints these in around 45 minutes each, so it's usually an overnight job when I need a bunch:
+    <br><br>
+    <div class="cards">
+        <div class="card">
+            <img src="img/nodes_printed.jpg">
+        </div>
+    </div>   
+    <br>
+    One meter of PLAttice box beam requires 80 pins, 60 struts, and 20 nodes. Once I got into the rhythm of production, I found I could print roughly this many parts in 24 hours: 1.5 hrs and 24 g for the pins, 7.5 hrs and 383 g for the struts across two plates, and 15 hrs and 414 g for the nodes. 
+    <br><br>
+    If you have a 3D printer and a pile of PLA sitting around and would like to make some PLAttice, I'm releasing everything under the terms of <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>. So go forth! Print lattices, assemble lattices, curse at lattices, sell lattices, share new lattice designs (with a link back to this page and your modifications, plz), and let me know if you build a thing and I'll link to your docs. 
+    <br><br>
+    <b>ye olde files</b>
+    <br>
+    <a href="files/strut.stl">struts</a>, 60 per meter of box beam
+    <br>
+    <a href="files/node.stl">nodes</a> (called "boxnodes" in Fusion360 archive), 20 per meter of box beam
+    <br>
+    <a href="files/pin.stl">pins</a>, 80 per meter of box beam
+    <br>
+    <a href="files/strut_short.stl">short struts</a>, just for end nodes
+    <br>
+    <a href="files/endnode.stl">end nodes</a>, which only work on one side of a box beam (mirror for the other side)
+    <br>
+    adjustable end nodes, which only work on the other side of a box beam (also mirror-able)
+    <br>
+    feet, which screw into adjustable end nodes with some M5 hardware; add a rubber pad for ceiling friction
+    <br>
+    <a href="files/chomper.stl">assembly/disassembly chomper</a>, print on its side in PETG (not excellent for disassembly)
+    <br>
+    <a href="files/pin_jig.stl">pin trimming tool</a>, please don't cut yourself trimming pins
+    <br>
+    <a href="files/endplate.dxf">end plate cutout pattern</a> you can CNC route out of plywood, to bolt onto four end nodes with M5 hardware; add rubber pads for floor friction
+    <br>
+    the complete Fusion360 archive, with all of my poor parametric feature modeling organization "choices" on display
+    <br><br>
+    <i>&copy; copyright zach fredin, 2025</i>
+</body>
