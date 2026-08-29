@@ -1,0 +1,76 @@
+
+
+/*stylesheet for Zach's HTM(A)A class page. thanks Aubrey for the starting point!*/
+.sidenav {
+    height: 100%;
+    width: 20px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #531f32;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 30px;
+    padding-left: 5px;
+    font-family: Arial, sans-serif;
+    overflow-y: auto;
+}
+
+.mainnav {
+    height: 100%;
+    position: fixed;
+    max-width: 815px;
+    z-index: 1;
+    top: 0;
+    left: 21;
+    padding-left: 5px;
+    padding-right: 10px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    overflow-y: auto;
+}
+
+.weeknum{
+  color:#a1acdf;
+  font-size: 16px;
+}
+
+.weeknum_fade{
+  color: #47527c;
+  font-size: 16px;
+}
+
+.weekname{
+  color: #ffffff;
+  font-size: 14px;
+  font-variant: small-caps;
+}
+
+.weekname_fade{
+  color: #ffffff44;
+  font-size: 14px;
+  font-variant: small-caps;
+}
+
+a:link {
+  color: #d64d7f;
+}
+
+a:visited {
+  color: #b1406a;
+}
+
+th {
+    text-align: left;
+}
+
+.text-block {
+    position: absolute;
+    bottom: 1rem;
+    left: 0.7rem;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: white;
+    padding: 0.3rem;
+} 
